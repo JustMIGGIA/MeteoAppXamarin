@@ -20,14 +20,15 @@ namespace MeteoAppSkeleton.ViewModels
             }
         }
 
-        public void refresh()
+        public MeteoListViewModel()
         {
             Locations = new ObservableCollection<Location>(App.Database.GetItemsAsync().Result);
         }
 
-        public MeteoListViewModel()
+        public void add(Location location)
         {
-            refresh();
+            if (!_locations.Contains(location))
+                _locations.Add(location);
         }
        
     }

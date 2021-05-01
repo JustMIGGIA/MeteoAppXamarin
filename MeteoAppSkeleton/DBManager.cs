@@ -49,12 +49,16 @@ namespace MeteoAppSkeleton
         /*
          * Salvataggio o update.
          */
-        public Task<int> SaveItemAsync(Location item)
+        public Task<bool> SaveItemAsync(Location item)
         {
-            if (GetItemsWithWhere(item.ID).Result.Count > 0) 
-                return database.UpdateAsync(item);
+            if (GetItemsWithWhere(item.ID).Result.Count > 0)
+            {
+                database.UpdateAsync(item);
+                return Task.FromResult(false);
+            }
 
-            return database.InsertAsync(item);
+            database.InsertAsync(item);
+            return Task.FromResult(true);
         }
 
         /*

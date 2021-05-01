@@ -18,14 +18,23 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
+    
     <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected"  ItemsSource="{Binding Locations}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Button Text="X" CommandParameter="{Binding .}" Clicked="Button_Clicked"/>
-                    </StackLayout>
+                    <Grid Margin="20,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label Grid.Column="0" Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                        <Label Grid.Column="1" Text="{Binding Temp}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                        <Button Grid.Column="2" Text="X" CommandParameter="{Binding .}" Clicked="Button_Clicked"/>
+                    </Grid>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
