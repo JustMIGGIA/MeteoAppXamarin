@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 namespace MeteoAppSkeleton.Models
 {
@@ -25,6 +22,7 @@ namespace MeteoAppSkeleton.Models
         public double Pressure { get; set; }
 
         public double Humidity { get; set; }
+
         public bool Gps { get; set; }
 
 
