@@ -32,7 +32,7 @@
 
 
                         <Label Grid.Column="0" Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Label Grid.Column="1" Text="{Binding Temp}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                        <Label Grid.Column="1" Text="{Binding Temp, StringFormat='{0}°'}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                         <Button Grid.Column="2" Text="X" CommandParameter="{Binding .}" Clicked="Button_Clicked"/>
                     </Grid>
                 </ViewCell>
